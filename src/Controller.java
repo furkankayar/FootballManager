@@ -18,7 +18,7 @@ public class Controller{
     }
     catch(Exception ex){}
 
-    System.out.println(new Manager().getTotalRating(footballers, 10, 10, 143822));
+    System.out.println(new Manager().getTotalRating(footballers, 10, 10, 150000));
   }
 
 
