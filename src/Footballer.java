@@ -59,6 +59,6 @@ public class Footballer{
   @Override
   public String toString(){
 
-    return this.order + " " + this.name + " " + this.position + " " + this.rating + " " + this.price;
+    return String.format("%-25s%5d%5d%8d",this.name,this.position,this.rating,this.price);
   }
 }

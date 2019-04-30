@@ -3,7 +3,9 @@ import java.util.ArrayList;
 
 public class Manager{
 
-  public int getTotalRating(ArrayList<Footballer> footballers, int n, int k, int budget){
+
+
+  public void getTotalRating(ArrayList<Footballer> footballers, int n, int k, int budget){
 
     MatrixCell[][] matrix = new MatrixCell[n*k+1][budget + 1];
     for(int i = 0; i < matrix.length ; i++)
@@ -13,38 +15,46 @@ public class Manager{
     for(int i = 1; i < matrix.length ; i++){
       for(int j = 1 ; j < matrix[0].length ; j++){
         if(footballers.get(i-1).getPrice() > j){
-          MatrixCell.copy(matrix[i][j], matrix[i-1][j]);
+          matrix[i][j].setRating(matrix[i-1][j].getRating());
+          matrix[i][j].setDirection(MatrixCell.Direction.NORTH);
         }
         else if(footballers.get(i-1).getPrice() <= j){
-
-          MatrixCell max = max(matrix[i-1][j], footballers.get(i-1).getRating(), matrix[i-footballers.get(i-1).getOrder()][j - footballers.get(i-1).getPrice()]);
-          MatrixCell.copy(matrix[i][j], max);
-          if(footballers.get(i-1).getRating() + matrix[i-footballers.get(i-1).getOrder()][j - footballers.get(i-1).getPrice()].getTotalRating() >= matrix[i-1][j].getTotalRating()){
-            matrix[i][j].add(footballers.get(i-1));
+          matrix[i][j].setRating(max(matrix[i-1][j].getRating(), footballers.get(i-1).getRating() + matrix[i-footballers.get(i-1).getOrder()][j - footballers.get(i-1).getPrice()].getRating()));
+          if(footballers.get(i-1).getRating() + matrix[i-footballers.get(i-1).getOrder()][j - footballers.get(i-1).getPrice()].getRating() >= matrix[i-1][j].getRating()){
+            matrix[i][j].setDirection(MatrixCell.Direction.NORTH_WEST);
+          }
+          else{
+            matrix[i][j].setDirection(MatrixCell.Direction.NORTH);
           }
         }
       }
     }
-    //printMatrix(matrix);
-    for(Footballer footballer : matrix[matrix.length - 1][matrix[0].length -1].getFootballers()) System.out.println(footballer);
-    System.out.println("Total Price: " + matrix[matrix.length - 1][matrix[0].length -1].getTotalPrice());
-    return matrix[matrix.length - 1][matrix[0].length -1].getTotalRating();
+
+    printPlayers(footballers, matrix, matrix.length - 1, matrix[0].length - 1, 0, 0);
   }
 
+  public void printPlayers(ArrayList<Footballer> footballers, MatrixCell[][] matrix, int x, int y, int totalPrice, int totalRating){
 
-  public MatrixCell max(MatrixCell a, int b, MatrixCell c){
-    if(a.getTotalRating() > b + c.getTotalRating())
-      return a;
-    return c;
-  }
-
-  public void printMatrix(MatrixCell[][] matrix){
-
-    for(int i = 0 ; i < matrix.length ; i++){
-      for(int j = 0 ; j < matrix[0].length ; j++){
-        System.out.print(matrix[i][j].getTotalRating() + "\t");
-      }
-      System.out.println();
+    if(matrix[x][y].getRating() == 0){
+      System.out.println("\nTotal price : " + totalPrice);
+      System.out.println("Total rating: " + totalRating);
+      return;
     }
+
+    if(matrix[x][y].getDirection() == MatrixCell.Direction.NORTH_WEST){
+      Footballer footballer = footballers.get(x-1);
+      System.out.println(footballer);
+      printPlayers(footballers, matrix, x - footballer.getOrder(), y - footballer.getPrice(), totalPrice + footballer.getPrice(), totalRating + footballer.getRating());
+    }
+    else if(matrix[x][y].getDirection() == MatrixCell.Direction.NORTH){
+      printPlayers(footballers, matrix, x -1, y, totalPrice, totalRating);
+    }
+  }
+
+
+  public int max(int a, int b){
+    if(a > b)
+      return a;
+    return b;
   }
 }
