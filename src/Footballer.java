@@ -7,13 +7,13 @@ public class Footballer{
   private int position;
   private int order;
 
-  public Footballer(String name, int position, int rating, int price, int order){
+  public Footballer(String name, int position, int rating, int price){
 
     this.name = name;
     this.rating = rating;
     this.price = price;
     this.position = position;
-    this.order = order;
+
   }
 
   public String getName(){
@@ -54,6 +54,13 @@ public class Footballer{
 
   public void setOrder(int order){
     this.order = order;
+  }
+
+  public int compareTo(Footballer footballer){
+
+    if((float)this.price/this.rating > (float)footballer.price/footballer.rating)
+      return 1;
+    return -1;
   }
 
   @Override

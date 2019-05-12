@@ -3,7 +3,7 @@
 public class MatrixCell{
 
 
-  public static enum Direction{
+  public enum Direction{
     NORTH,
     NORTH_WEST,
   }

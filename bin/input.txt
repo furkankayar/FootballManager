@@ -1,22 +1,23 @@
-Yansı Hilal Çınaroğlu,1,88,10000
-Omaç Çıngır,1,90,11250
-Erhan Çıray,1,77,9100
-Şüheda Çiçekli,1,86,9900
-Ünkan Çini,1,85,9680
-Ahmet Gazi Çintan,1,80,9300
-Seher İrem Çitfçi,1,81,9450
-Gürbüz Çivici,1,83,9530
-Zülal Çolak,1,84,9550
-Ozan Ege Çomu,1,87,10500
+Çisil Zeynep Dönmez,6,71,12000
+Çisel Ersin,10,93,15102
+Tugce Dudu,6,73,13000
+Bedir Destereci,4,87,12222
+Elanaz Dülgerbaki,6,75,14000
 Hilal Ebru Çonay,2,88,15000
+Tubanur Dereli,4,88,12666
+Olgun Dadalıoğlu,2,85,13000
 Ayben Çorumlu,2,90,15555
 Abdulbaki Çotur,2,78,9500
 Neva Çuhadar,2,86,14000
 Öznur Çulhaoğlu,2,85,13500
-Olgun Dadalıoğlu,2,85,13000
 Çağrı Atahan Dağar,2,79,10000
 Özalp Dağbağ,2,83,12500
 Hüsne Aysun Dal,2,89,15358
+Muhammed Bazit Deliloğlu,3,82,14000
+Miraç Demırören,4,89,13000
+Hürel Demiriz,4,81,11880
+Sömer Demiroğlu,4,79,10898
+Aysel Aysu Demirsatan,4,86,12111
 Aydonat Dalkılıç,2,87,14500
 Ezgin Dallı,3,88,17000
 Refiye Seda Dalyaprak,3,92,18000
@@ -27,17 +28,15 @@ Mert Görkem Dayıoğlu,3,80,12000
 Ergün Değirmendereli,3,87,16500
 Hülya Delı Chasan,3,83,14500
 Doga Elif Delice,3,84,15000
-Muhammed Bazit Deliloğlu,3,82,14000
-Miraç Demırören,4,89,13000
-Hürel Demiriz,4,81,11880
-Sömer Demiroğlu,4,79,10898
-Aysel Aysu Demirsatan,4,86,12111
 Mehmet Kemal Dengizek,4,85,12000
 Alya Denizgünü,4,83,11888
 Zeynep Büşra Derdemez,4,81,11555
-Tubanur Dereli,4,88,12666
 Dalay Derya,4,84,11982
-Bedir Destereci,4,87,12222
+Sanber Durak,6,68,11000
+Birsen Durmuş,6,69,11300
+Taçmin Durmuşoğlu,6,72,12500
+Karanalp Dursun,6,70,11500
+Öktem Duymuş,6,74,13500
 Rümeysa İrem Devecel,5,78,12900
 Osman Sinan Devrim,5,80,13231
 Saliha Canan Dıvarcı,5,75,12250
@@ -49,20 +48,17 @@ Zehra Pelin Döger,5,71,11850
 Seli M Sharef Dökülmez,5,73,12000
 Firuze Dönder,5,76,12500
 Doruk Deniz Döner,6,65,10000
-Çisil Zeynep Dönmez,6,71,12000
-Tugce Dudu,6,73,13000
 Enver Dur,6,66,10500
-Sanber Durak,6,68,11000
-Birsen Durmuş,6,69,11300
-Taçmin Durmuşoğlu,6,72,12500
-Karanalp Dursun,6,70,11500
-Öktem Duymuş,6,74,13500
-Elanaz Dülgerbaki,6,75,14000
 Fidan Dündar,7,88,13500
 Barın Düşenkalkar,7,90,14000
 Mehmet Erman Düzbayır,7,77,11500
 Cem Efe Edeş,7,86,13200
 Erem Edibali Mp,7,85,13000
+Şüheda Çiçekli,1,86,9900
+Ünkan Çini,1,85,9680
+Ahmet Gazi Çintan,1,80,9300
+Seher İrem Çitfçi,1,81,9450
+Gürbüz Çivici,1,83,9530
 Volkan Eyüp Efşin,7,80,12000
 İbrahim Alp Tekin Ege,7,81,12500
 Güngör Erkin Egeli,7,83,12800
@@ -90,7 +86,6 @@ Hanife Nur Erkovan,9,75,11000
 Alper Emin Erkuş,9,87,12888
 Elif Kevser Eroğlu,10,88,13900
 Abdullah Mert Erol,10,94,15555
-Çisel Ersin,10,93,15102
 İlkin Ersöz,10,95,15898
 Cantekin Erten,10,90,14500
 Onur Kerem Ertepınar,10,88,13900
@@ -98,3 +93,8 @@ Onur Kerem Ertepınar,10,88,13900
 Hamıd Eryıldız,10,90,14876
 Tunca Eryılmaz,10,91,14987
 Arslan Erzurumlu,10,87,13500
+Ozan Ege Çomu,1,87,10500
+Yansı Hilal Çınaroğlu,1,88,10000
+Omaç Çıngır,1,90,11250
+Erhan Çıray,1,77,9100
+Zülal Çolak,1,84,9550
