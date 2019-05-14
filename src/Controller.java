@@ -21,8 +21,8 @@ public class Controller{
   private int n;
   private int k;
 
-
   private final String FILENAME = "input.txt";
+
 
   public Controller(){
 
@@ -40,48 +40,51 @@ public class Controller{
 
     while(true){
 
-    for(int i = 0 ; i != inputNumber ; ){
+      for(int i = 0 ; i != inputNumber ; ){
+        try{
+          if(i == 0){
+            System.out.print("Enter the amount to spend(X): ");
+            x = scan.nextInt();
+            if(x < 0) throw new InputMismatchException();
+            i++;
+          }
+          else if(i == 1){
+            System.out.print("Enter the number of the positions (N): ");
+            n = scan.nextInt();
+            if(n < 0) throw new InputMismatchException();
+            i++;
+          }
+          else if(i == 2){
+            System.out.print("Enter the number of the available players for each position (K): ");
+            k = scan.nextInt();
+            if(k < 0) throw new InputMismatchException();
+            i++;
+          }
+        }
+        catch(InputMismatchException ex){
+          System.out.println("Wrong value entered! ");
+          scan = new Scanner(System.in);
+        }
+      }
+
+      ArrayList<Footballer> chosenPartOfFootballers = getPartOfFootballers(n, k);
+      System.out.println("\033[1m\nDP results:\033[0m");
+
       try{
-        if(i == 0){
-          System.out.print("Enter the amount to spend(X): ");
-          x = scan.nextInt();
-          if(x < 0) throw new InputMismatchException();
-          i++;
-        }
-        else if(i == 1){
-          System.out.print("Enter the number of the positions (N): ");
-          n = scan.nextInt();
-          if(n < 0) throw new InputMismatchException();
-          i++;
-        }
-        else if(i == 2){
-          System.out.print("Enter the number of the available players for each position (K): ");
-          k = scan.nextInt();
-          if(k < 0) throw new InputMismatchException();
-          i++;
-        }
+        float runTime = manager.createBestTeamDynamic(chosenPartOfFootballers, n, k, x);
+        System.out.println("\nRuntime: " + runTime + " ms\n");
       }
-      catch(InputMismatchException ex){
-        System.out.println("Wrong value entered! ");
-        scan = new Scanner(System.in);
+      catch(OutOfMemoryError err){
+        System.out.println("Error: Heap space has been exceeded! Please set up your heap size from virtual machine arguments.");
       }
-    }
+      System.out.println("\033[0;1m\nGreedy Approach results:\033[0m");
 
-    ArrayList<Footballer> chosenPartOfFootballers = getPartOfFootballers(n, k);
-    System.out.println("\033[1m\nDP results:\033[0m");
-    try{
-      manager.createBestTeamDynamic(chosenPartOfFootballers, n, k, x);
-    }
-    catch(OutOfMemoryError err){
-      System.out.println("Error: Heap space has been exceeded! Please set up your heap size from virtual machine arguments.");
-    }
-    System.out.println("\033[0;1m\nGreedy Approach results:\033[0m");
-    manager.createBestTeamGreedy(chosenPartOfFootballers, n, x);
-
-    System.out.print("\nPress \033[1mENTER\033[0m for a new query.");
-    scan = new Scanner(System.in);
-    scan.nextLine();
-    System.out.println("\n\n");
+      float runTime = manager.createBestTeamGreedy(chosenPartOfFootballers, n, x);
+      System.out.println("\nRuntime: " + runTime + " ms\n");
+      System.out.print("\nPress \033[1mENTER\033[0m for a new query.");
+      scan = new Scanner(System.in);
+      scan.nextLine();
+      System.out.println("\n\n");
     }
   }
 

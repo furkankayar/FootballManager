@@ -8,7 +8,10 @@ public class Manager{
 
 
 
-  public void createBestTeamDynamic(ArrayList<Footballer> footballers, int n, int k, int budget){
+  public float createBestTeamDynamic(ArrayList<Footballer> footballers, int n, int k, int budget){
+
+    long startTime = System.nanoTime();
+    long runTime = 0;
 
     MatrixCell[][] matrix = new MatrixCell[footballers.size() + 1][budget + 1];
     for(int i = 0; i < matrix.length ; i++)
@@ -35,7 +38,9 @@ public class Manager{
         }
       }
     }
+    runTime = System.nanoTime() - startTime;
     printPlayers(footballers, matrix, matrix.length - 1, matrix[0].length - 1, 0, 0);
+    return runTime / 1000000f;
   }
 
   public void printPlayers(ArrayList<Footballer> footballers, MatrixCell[][] matrix, int x, int y, int totalPrice, int totalRating){
@@ -57,7 +62,10 @@ public class Manager{
   }
 
 
-  public void createBestTeamGreedy(ArrayList<Footballer> footballers, int n, int budget){
+  public float createBestTeamGreedy(ArrayList<Footballer> footballers, int n, int budget){
+
+    long startTime = System.nanoTime();
+    long runTime = 0;
 
     Collections.sort(footballers, new Comparator<Footballer>(){
       @Override
@@ -80,10 +88,13 @@ public class Manager{
         availablePositions[footballer.getPosition() - 1] = false;
       }
     }
+    runTime = System.nanoTime() - startTime;
 
     System.out.println("Total price : " + (budget - budgetLeft));
     System.out.println("Total rating: " + totalRating + "\n\nPlayers:");
     for(Footballer footballer : chosenFootballers) System.out.println(footballer);
+
+    return runTime/1000000f;
   }
 
 
