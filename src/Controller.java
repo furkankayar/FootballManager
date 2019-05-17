@@ -31,6 +31,7 @@ public class Controller{
     scan = new Scanner(System.in);
     readInputFile(FILENAME);
     sortFootballers();
+    System.out.println("\nInput file has been read successfully.\n");
     run();
   }
 
