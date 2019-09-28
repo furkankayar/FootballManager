@@ -29,10 +29,11 @@ public class Controller{
     this.footballers = new ArrayList<Footballer>();
     manager = new Manager();
     scan = new Scanner(System.in);
-    readInputFile(FILENAME);
-    sortFootballers();
-    System.out.println("\nInput file has been read successfully.\n");
-    run();
+    if(readInputFile(FILENAME)){
+      sortFootballers();
+      System.out.println("\nInput file has been read successfully.\n");
+      run();
+    }
   }
 
   public void run(){
@@ -124,7 +125,7 @@ public class Controller{
   }
 
 
-  public void readInputFile(String fileName){
+  public boolean readInputFile(String fileName){
 
     try{
       BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
@@ -134,6 +135,7 @@ public class Controller{
         footballers.add(new Footballer(properties[0], Integer.valueOf(properties[1]), Integer.valueOf(properties[2]), Integer.valueOf(properties[3])));
       }
       br.close();
+      return true;
     }
     catch(FileNotFoundException ex){
       System.out.println("Error: " + fileName + " has not been found!");
@@ -144,6 +146,8 @@ public class Controller{
     catch(ArrayIndexOutOfBoundsException ex){
       System.out.println("Error: Input file has missing fields!");
     }
+
+    return false;
   }
 
 
